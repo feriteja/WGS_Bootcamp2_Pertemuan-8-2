@@ -21,15 +21,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.send("about page");
+  res.sendFile("./about.html", { root: __dirname });
 });
 
 app.get("/contact", (req, res) => {
-  res.send("contact page");
+  res.sendFile("./contact.html", { root: __dirname });
 });
 
 app.use("/", (req, res) => {
-  res.status(404).send("test");
+  res.status(404).sendFile("./index.html", { root: __dirname });
 });
 
 app.listen(port, () => {
